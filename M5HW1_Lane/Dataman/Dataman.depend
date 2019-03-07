@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1551380937 source:f:\khristopher college class\2019 spring classes\csc 134\m4lab_lane\dataman\arithmetic.cpp
+	<iostream>
+
+1551383261 source:f:\khristopher college class\2019 spring classes\csc 134\m4lab_lane\dataman\main.cpp
+	<iostream>
+	"Arithmetic.h"
+	"Temperature.h"
+
+1550778746 f:\khristopher college class\2019 spring classes\csc 134\m4lab_lane\dataman\arithmetic.h
+
+1551464725 source:f:\khristopher college class\2019 spring classes\csc 134\m4lab_lane\dataman\temperature.cpp
+	<iostream>
+
+1551379784 source:f:\khristopher college class\2019 spring classes\csc 134\m4lab_lane\dataman\temperature.h
+
+1551380674 f:\khristopher college class\2019 spring classes\csc 134\m4lab_lane\dataman\temperature.h
+
+1551380937 source:f:\khristopher college class\2019 spring classes\csc 134\m5hw1_lane\dataman\arithmetic.cpp
+	<iostream>
+
+1551986803 source:f:\khristopher college class\2019 spring classes\csc 134\m5hw1_lane\dataman\main.cpp
+	<iostream>
+	"Arithmetic.h"
+	"Temperature.h"
+
+1550778746 f:\khristopher college class\2019 spring classes\csc 134\m5hw1_lane\dataman\arithmetic.h
+
+1551813838 f:\khristopher college class\2019 spring classes\csc 134\m5hw1_lane\dataman\temperature.h
+
+1551814213 source:f:\khristopher college class\2019 spring classes\csc 134\m5hw1_lane\dataman\temperature.cpp
+	<iostream>
+
+1551986803 source:f:\khristopher college class\2019 spring classes\csc 134\m5hw1_lane\dataman\menu.cpp
+	<iostream>
+
