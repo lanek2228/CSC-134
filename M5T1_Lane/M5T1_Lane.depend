@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1551811495 source:f:\khristopher college class\2019 spring classes\csc 134\m5t1_lane\m5t1_part1_lane\main.cpp
+	<iostream>
+	"Pen.h"
+
+1551811869 f:\khristopher college class\2019 spring classes\csc 134\m5t1_lane\m5t1_part1_lane\pen.h
+
+1551984873 source:f:\khristopher college class\2019 spring classes\csc 134\m5t1_lane\main.cpp
+	<iostream>
+	"Pen.h"
+
+1551811869 f:\khristopher college class\2019 spring classes\csc 134\m5t1_lane\pen.h
+
