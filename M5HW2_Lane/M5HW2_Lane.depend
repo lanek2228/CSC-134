@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1553401019 source:f:\khristopher college class\2019 spring classes\csc 134\m5hw2_lane\atm main menu.cpp
+	<iostream>
+	"atm.h"
+
+1553402146 f:\khristopher college class\2019 spring classes\csc 134\m5hw2_lane\atm.h
+
+1553468618 source:f:\khristopher college class\2019 spring classes\csc 134\m5hw2_lane\atm.cpp
+	<iostream>
+	"atm.h"
+
+1553468574 source:f:\khristopher college class\2019 spring classes\csc 134\m5hw2_lane\main.cpp
+	<iostream>
+	"atm.h"
+
