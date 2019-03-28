@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1553797493 source:f:\khristopher college class\2019 spring classes\csc 134\m6t1_lane\main.cpp
+	<iostream>
+	"observer.h"
+
+1553798827 f:\khristopher college class\2019 spring classes\csc 134\m6t1_lane\observer.h
+
+1553797591 source:f:\khristopher college class\2019 spring classes\csc 134\m6t1_lane\observer.cpp
+	<iostream>
+	"observer.h"
+
