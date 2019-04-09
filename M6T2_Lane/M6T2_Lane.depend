@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1554347580 source:c:\dev\codeblocks\projects\roomlinks\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	"room.h"
+
+1554344967 source:c:\dev\codeblocks\projects\roomlinks\room.cpp
+	"room.h"
+
+1554345048 c:\dev\codeblocks\projects\roomlinks\room.h
+	<string>
+
+1554398170 source:f:\khristopher college class\2019 spring classes\csc 134\roomlinks\roomlinks\room.cpp
+	"room.h"
+
+1554398170 f:\khristopher college class\2019 spring classes\csc 134\roomlinks\roomlinks\room.h
+	<string>
+
+1554404389 source:f:\khristopher college class\2019 spring classes\csc 134\m6t2_lane\room.cpp
+	"room.h"
+
+1554401776 f:\khristopher college class\2019 spring classes\csc 134\m6t2_lane\room.h
+	<string>
+
+1554404269 source:f:\khristopher college class\2019 spring classes\csc 134\m6t2_lane\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	"room.h"
+
