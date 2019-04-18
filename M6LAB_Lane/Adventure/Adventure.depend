@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1555593748 source:f:\khristopher college class\2019 spring classes\csc 134\adventure\main.cpp
+	<iostream>
+	"game.h"
+	"player.h"
+	"room.h"
+
+1555007154 source:f:\khristopher college class\2019 spring classes\csc 134\adventure\player.cpp
+	"player.h"
+
+1555591867 f:\khristopher college class\2019 spring classes\csc 134\adventure\player.h
+	<string>
+	"room.h"
+
+1555591930 f:\khristopher college class\2019 spring classes\csc 134\adventure\room.h
+	<string>
+
+1555592335 source:f:\khristopher college class\2019 spring classes\csc 134\adventure\room.cpp
+	"room.h"
+
+1555610288 source:f:\khristopher college class\2019 spring classes\csc 134\adventure\game.cpp
+	"game.h"
+
+1555594532 f:\khristopher college class\2019 spring classes\csc 134\adventure\game.h
+	<iostream>
+	<vector>
+	<string>
+	"room.h"
+	"player.h"
+
