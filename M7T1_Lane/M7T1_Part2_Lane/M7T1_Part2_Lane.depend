@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1556820800 source:f:\khristopher college class\2019 spring classes\csc 134\m7t1_lane\m7t1_part2_lane\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+
