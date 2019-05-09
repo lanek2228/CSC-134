@@ -47,7 +47,7 @@ void Game::doNextTurn()
         }
     else if (verb == "quit")
         {
-        gameIsRunning = false;
+        gameIsRunning = false;uit
         cout << "Quitting" << endl;
         }
     else if (verb == "look")
@@ -114,13 +114,17 @@ void Game::startGame()
     cout << endl;
     // populate the room list
     // then connect rooms together
-    Room* Cell = new Room("Prison Cell","You are standing within your cell.", 0);
+    Room* Cell = new Room("Cell Room A","You are standing within your cell.", 0);
     Room* Corridor = new Room("Corridor","You stand in a damp corridor that has a smell of musky air.", 1);
     Room* Armory = new Room("Armory","You found an armory that is holding hold weapons and armors for the guards.", 2);
     Room* GuardsPost = new Room("Guard Post","You entered what seems to be a guard post, but there is no one here.", 3);
     Room* Barracks = new Room("Barracks","You walk into the main barracks for the guards.",4);
     Room* Courtyard = new Room("Courtyard","You stumble what seems to be the courtyard, the guards must train here.", 5);
     Room* MainGate = new Room("Main Gate","You found the main gate to exit this horrible prison.", 6);
+    Room* Office = new Room("Warden's Office", "You found the prison warden's office, but seems like he is not here at the time.", 7);
+    Room* Cell_2 = new Room("Cell Room B", "You found another open cell, but the inhabitant here did not make it.", 8);
+    Room* Storage = new Room("Storage Room", "You walked into an old storage room, mostly junk and supplies useless to use for an escape.", 9);
+    // TODO: add a room with the room to hold an object
 
     rooms[0] = Cell;
     rooms[1] = Corridor;
@@ -129,6 +133,9 @@ void Game::startGame()
     rooms[4] = Barracks;
     rooms[5] = Courtyard;
     rooms[6] = MainGate;
+    rooms[7] = Office;
+    rooms[8] = Cell_2;
+    rooms[9] = Storage;
 
     // room 0 to room 1
     Cell->North = Corridor;
@@ -154,6 +161,18 @@ void Game::startGame()
     Courtyard->West = MainGate;
     // room 6 too room 5
     MainGate->East = Courtyard;
+    // room 2 to room 8
+    Corridor->North = Cell_2;
+    // room 8 to room 2
+    Cell_2->South = Corridor;
+    // room 3 to room 7
+    GuardsPost->West = Office;
+    // room 7 to room 3
+    Office->East = GuardsPost;
+    // room 5 to room 9
+    Courtyard->North = Storage;
+    // room 9 to room 5
+    Storage->South = Courtyard;
 
     //starting location for player
     player.location = rooms[0];
@@ -163,11 +182,17 @@ void Game::startGame()
     Item DEX_POTION = Item("potion", "This Dexterity potion will increase your reflexes.", 3);
     Item STEEL_ARMOR = Item("armor", "This is a sturdy steel armor that would give extra protection.", 4);
     Item PRISON_RAGS = Item("clothes", "These are old prison rags you were left in.", -1);
+    Item ROPE = Item("rope", "Sturdy rope that could help you get out of a tight spot.", 5);
+    Item KEY = Item("key", "This is an silver key, it might be useful for something?", 7);
+    Item BODY = Item("prisoner", "you see a dead Elf prisoner. Poor sot, his throat cut clean.", 8);
     //itemList._items.push_back(apple);
     itemList.add(LONG_SWORD);
     itemList.add(DEX_POTION);
     itemList.add(STEEL_ARMOR);
     itemList.add(PRISON_RAGS);
+    itemList.add(ROPE);
+    itemList.add(KEY); // Put item in a different room that is within the room office
+    itemList.add(BODY);
 
     //Item  = Item("", "", );
     //itemList.add();
@@ -277,7 +302,7 @@ void Game::commandLook()
     itemList.printItemsInLocation(player.location->locationId);
 }
 
-// item commands: Examine, Get, Drop
+// item commands: Examine, Get, Drop (add a command to open)
 void Game::commandExamine(string noun)
 {
     //cout << "TODO: implement examine" << endl;
@@ -310,6 +335,8 @@ void Game::commandGet(string noun)
         cout << "Done." << endl;
         // change the item's locationID to INVENTORY
         itemList.updateLocation(noun, INVENTORY);
+        cout << "You gain 10 points!" << endl;
+        score+= 10;
     }
     else if (itemList.isItemHere(noun, INVENTORY)){
         cout << "You're already carrying the " << noun << endl;
@@ -333,6 +360,8 @@ void Game::commandDrop(string noun)
         cout << "Dropped." << endl;
         // change the item's locationID to INVENTORY
         itemList.updateLocation(noun, player.location->locationId);
+        cout << "you lost 10 points!" << endl;
+        score-= 10;
     }
     else if (itemList.isItemHere(noun, player.location->locationId)){
         cout << "You're already dropped the " << noun << endl;
@@ -363,6 +392,7 @@ void Game::commandRestart()
 
 void Game::MainGate()
 {
-    cout << "You have Won, great work on escaping the prison!";
+    cout << "You have Won, great work on escaping the prison!" << endl;
+    cout << "During your escape you earned: " << score << endl;
     cout << endl;
 }

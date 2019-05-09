@@ -12,7 +12,7 @@
     (global constants) available to the entire program
 
 */
-static const int NUM_ROOMS = 7; // number of rooms in game
+static const int NUM_ROOMS = 10; // number of rooms in game
 static const int INVENTORY = -1; // player location ID
 
 //static const int NUM_ITEMS = 3; // number of items in game
