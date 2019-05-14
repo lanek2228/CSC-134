@@ -24,6 +24,9 @@ Item::Item(string name, string description, int locationId)
     _name = name;
     _description = description;
     _locationId = locationId;
+
+    // all items can be gotten and dropped by default
+    isLiftable = true;
 }
 
 string Item::getName()
@@ -91,28 +94,41 @@ void ItemList:: add(Item item)
  	_items.push_back(item);
 }
 
-bool ItemList::isItemHere (string itemName, int locationId)
-{
-    // This method looks up an item by name
-    // returns true if it is in this locationId, else false
+// working with an item pointer out of the iterator
+// directly can be dangerous (not in this program,
+// but in some contexts). However we create it at game
+// start and never change its order, so it's fine.
+// Just something to be aware of.
 
-    vector<Item>::iterator itemIter = _items.begin();
+Item* ItemList::getItemByName(string itemName) {
+    // if the item exists, return a pointer to it
+    // if not, return zero (null pointer)
+    // this is a utility function that makes
+    // any other itemList functions modifying items
+    // much simpler
+    Item* pItem = 0;
 
-	while (itemIter != _items.end())
-    {
-		if (itemName == itemIter->getName())
-            {
-			// an item of that name exists
-			// is it here?
-			if (locationId == itemIter->getLocationId())
-			{
-			    return true; // right name and right location
-			} // item wasn't in this room
-		}// item didn't have that name
+    vector<Item>::iterator iter = _items.begin();
 
-        itemIter++; // go to next item
+    while (iter != _items.end()) {
+        if (iter->getName() == itemName) {
+            // convert the iterator to a regular item pointer
+            pItem = &*iter; // yes, this syntax is weird.
+        }
+        iter++; // go to next item
     }
-	return false;
+    return pItem;
+}
+
+// now that we have getItemByName, this is much shorter!
+void ItemList::updateLocation(string itemName, int locId) {
+
+    Item* pItem = getItemByName(itemName);
+
+    if (pItem != 0)
+    {
+        pItem->setLocationId(locId);
+    }
 }
 
 string ItemList::getItemDescription(string itemName)
@@ -121,30 +137,28 @@ string ItemList::getItemDescription(string itemName)
     // output: its description
     string description = "NOT FOUND";
 
-    vector<Item>::iterator itemIter = _items.begin();
+    Item* pItem = getItemByName(itemName);
 
-    while (itemIter != _items.end())
+    if (pItem != 0)
     {
-        if (itemIter->getName() == itemName)
-        {
-            description = itemIter->getDescription();
-        }
-        itemIter++; // go to next item
+        description = pItem->getDescription();
     }
-
     return description;
 }
 
-void ItemList::updateLocation(string itemName, int locId)
+bool ItemList::isItemHere(string itemName, int locationId)
 {
-    vector<Item>::iterator itemIter = _items.begin();
+    // This method looks up an item by name
+    // returns true if it is in this locationId, else false
 
-    while (itemIter != _items.end())
+    Item* pItem = getItemByName(itemName);
+
+    if (pItem != 0) // does this item exist?
     {
-        if (itemIter->getName() == itemName)
-        {
-            itemIter->setLocationId(locId);
-        }
-        itemIter++; // go to next item
+        if (locationId == pItem->getLocationId() )
+            {
+                return true; // right name and right location
+            } // item wasn't in this room
     }
+    return false; // we didn't find it
 }

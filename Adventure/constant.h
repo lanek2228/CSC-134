@@ -14,6 +14,7 @@
 */
 static const int NUM_ROOMS = 10; // number of rooms in game
 static const int INVENTORY = -1; // player location ID
+static const int NOWHERE = -2; // items not currently accessible
 
 //static const int NUM_ITEMS = 3; // number of items in game
 

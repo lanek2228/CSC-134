@@ -41,6 +41,7 @@ public:
     string getDescription();
     int getLocationId();
     void setLocationId(int);
+    bool isLiftable; // can you move this? true by default
 
 
 private:
@@ -52,13 +53,6 @@ private:
 
 class ItemList
 {
-    // the Game will contain one ItemList,
-    // which manages all the items in the game.
-
-    // For more information, see Book IV, Chapter 6,
-    // Listing 6-6.
-    // That chapter also discusses maps and sets,
-    // which are alternatives we'll look at later.
 
 public:
     void printAllItems();
@@ -68,6 +62,7 @@ public:
     string getItemDescription(string);
     void updateLocation(string, int); // name of item, location id
 
+    Item* getItemByName(string);
 
 private:
     vector<Item> _items;

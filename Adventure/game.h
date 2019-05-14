@@ -27,7 +27,6 @@ private:
     bool PlayerHasWon;
     void MainGate();
     /*TODO
-    add items
     add NPS
     */
     // holds all items
@@ -53,6 +52,8 @@ public:
     void startGame();
     void gameOver(bool);
     void doNextTurn();
+    void openTheCourtyardDoor();
+    void Epilogue();
 
     int getScore();
 
